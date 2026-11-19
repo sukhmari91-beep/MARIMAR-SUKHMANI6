@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureTech Explorer | Horizons of Tomorrow</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        futuristic: {
+                            50: '#f7f6f2',
+                            150: '#eef0eb',
+                            200: '#e3dfd3',
+                            300: '#d1cbb5',
+                            400: '#b0a688',
+                            800: '#1b263b',
+                            900: '#0d1b2a',
+                            950: '#060d14',
+                            accent: '#3a86ff',
+                            gold: '#f4a261',
+                            beige: '#f4f1de'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(27, 38, 59, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(176, 166, 136, 0.2);
+        }
+        .glass-card-light {
+            background: rgba(244, 241, 222, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(176, 166, 136, 0.3);
+        }
+        .hero-glow {
+            box-shadow: 0 0 50px -10px rgba(58, 134, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-futuristic-950 text-futuristic-50 font-sans antialiased selection:bg-futuristic-accent selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-futuristic-900/80 backdrop-blur-md border-b border-futuristic-400/20 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-futuristic-accent to-futuristic-400 flex items-center justify-center shadow-lg">
+                        <i class="fa-solid fa-atom text-futuristic-950 text-xl animate-spin" style="animation-duration: 12s;"></i>
+                    </div>
+                    <span class="font-heading font-extrabold text-xl sm:text-2xl tracking-wider text-futuristic-beige">FUTURE<span class="text-futuristic-accent">TECH</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium">
+                    <a href="#ai" class="text-futuristic-300 hover:text-futuristic-accent transition-colors">AI</a>
+                    <a href="#robotics" class="text-futuristic-300 hover:text-futuristic-accent transition-colors">Robotics</a>
+                    <a href="#space" class="text-futuristic-300 hover:text-futuristic-accent transition-colors">Space</a>
+                    <a href="#inventions" class="text-futuristic-300 hover:text-futuristic-accent transition-colors">Inventions</a>
+                    <a href="#quiz" class="px-5 py-2 rounded-full bg-futuristic-accent text-white font-semibold hover:bg-blue-600 transition-all shadow-md shadow-blue-500/20">Knowledge Quiz</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-futuristic-300 hover:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-futuristic-900 border-b border-futuristic-400/20 px-6 pt-4 pb-6 space-y-4">
+            <a href="#ai" class="block text-futuristic-300 hover:text-futuristic-accent text-lg font-medium mobile-link">Artificial Intelligence</a>
+            <a href="#robotics" class="block text-futuristic-300 hover:text-futuristic-accent text-lg font-medium mobile-link">Robotics & Cybernetics</a>
+            <a href="#space" class="block text-futuristic-300 hover:text-futuristic-accent text-lg font-medium mobile-link">Space Exploration</a>
+            <a href="#inventions" class="block text-futuristic-300 hover:text-futuristic-accent text-lg font-medium mobile-link">Future Inventions</a>
+            <a href="#quiz" class="block text-center w-full py-3 rounded-xl bg-futuristic-accent text-white font-semibold mobile-link shadow-md">Knowledge Quiz</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+        <!-- Background Gradients & Effects -->
+        <div class="absolute inset-0 z-0 opacity-45 pointer-events-none">
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-futuristic-accent/30 to-futuristic-400/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-futuristic-gold/10 rounded-full blur-2xl"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-futuristic-900/80 border border-futuristic-400/30 text-futuristic-300 text-sm mb-6 animate-pulse">
+                <span class="w-2.5 h-2.5 rounded-full bg-futuristic-accent"></span>
+                <span>Welcome to the Next Era of Human Innovation</span>
+            </div>
+            
+            <h1 class="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight max-w-5xl mx-auto leading-tight text-futuristic-beige">
+                Decoding the <span class="text-transparent bg-clip-text bg-gradient-to-r from-futuristic-accent via-blue-400 to-futuristic-gold">Technologies</span> of Tomorrow
+            </h1>
+            
+            <p class="mt-6 text-lg sm:text-xl text-futuristic-300 max-w-3xl mx-auto leading-relaxed font-light">
+                Explore the groundbreaking frontiers shaping our future—from conscious artificial intelligence and autonomous robotics to interstellar colonization and quantum inventions.
+            </p>
+
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#ai" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-futuristic-accent hover:bg-blue-600 text-white font-bold transition-all shadow-lg shadow-blue-500/25 flex items-center justify-center space-x-3">
+                    <span>Start Exploring</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <a href="#quiz" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-futuristic-900/90 hover:bg-futuristic-900 text-futuristic-beige border border-futuristic-400/30 font-bold transition-all flex items-center justify-center space-x-3">
+                    <i class="fa-solid fa-graduation-cap text-futuristic-accent"></i>
+                    <span>Test Your Knowledge</span>
+                </a>
+            </div>
+
+            <!-- Quick stats bar -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="glass-card p-4 rounded-2xl text-center">
+                    <div class="text-2xl sm:text-3xl font-bold font-heading text-futuristic-beige">AGI & LLMs</div>
+                    <div class="text-xs sm:text-sm text-futuristic-400 mt-1">Artificial Intelligence</div>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center">
+                    <div class="text-2xl sm:text-3xl font-bold font-heading text-futuristic-beige">Bipedal & Neural</div>
+                    <div class="text-xs sm:text-sm text-futuristic-400 mt-1">Advanced Robotics</div>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center">
+                    <div class="text-2xl sm:text-3xl font-bold font-heading text-futuristic-beige">Artemis & Mars</div>
+                    <div class="text-xs sm:text-sm text-futuristic-400 mt-1">Space Exploration</div>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center">
+                    <div class="text-2xl sm:text-3xl font-bold font-heading text-futuristic-beige">Fusion & Nano</div>
+                    <div class="text-xs sm:text-sm text-futuristic-400 mt-1">Next Inventions</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topic 1: Artificial Intelligence -->
+    <section id="ai" class="py-24 bg-futuristic-900/40 relative border-t border-futuristic-400/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-futuristic-accent/10 border border-futuristic-accent/30 text-futuristic-accent text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-brain"></i>
+                        <span>Pillar One</span>
+                    </div>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-futuristic-beige">
+                        Artificial Intelligence & Neural Networks
+                    </h2>
+                    <p class="text-futuristic-300 leading-relaxed">
+                        Artificial Intelligence is evolving rapidly from narrow task automation to generalized cognitive systems (AGI). Modern deep learning models can synthesize text, compose music, fold proteins, and reason through complex scientific dilemmas in mere milliseconds.
+                    </p>
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-futuristic-accent/20 flex items-center justify-center shrink-0 mt-1 text-futuristic-accent">
+                                <i class="fa-solid fa-microchip"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-futuristic-beige">Generative Models & Autonomous Reasoning</h4>
+                                <p class="text-sm text-futuristic-400">Machines that don't just mimic human output, but independently formulate hypotheses and test digital models.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-futuristic-accent/20 flex items-center justify-center shrink-0 mt-1 text-futuristic-accent">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-futuristic-beige">AI Ethics & Alignment</h4>
+                                <p class="text-sm text-futuristic-400">Ensuring superintelligent algorithms remain aligned with human values, transparency, and safety protocols.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6">
+                    <div class="relative rounded-2xl overflow-hidden glass-card p-3 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1000&q=80" alt="Artificial Intelligence Neural Network" class="rounded-xl w-full h-[380px] object-cover hover:scale-105 transition-transform duration-700">
+                        <div class="absolute bottom-6 left-6 right-6 bg-futuristic-950/80 backdrop-blur-md p-4 rounded-xl border border-futuristic-400/20">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-futuristic-300 font-medium">Core Intelligence Index</span>
+                                <span class="text-futuristic-accent font-bold">Exponential Growth</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topic 2: Robotics & Cybernetics -->
+    <section id="robotics" class="py-24 relative border-t border-futuristic-400/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 order-2 lg:order-1">
+                    <div class="relative rounded-2xl overflow-hidden glass-card p-3 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1000&q=80" alt="Advanced Humanoid Robotics" class="rounded-xl w-full h-[380px] object-cover hover:scale-105 transition-transform duration-700">
+                        <div class="absolute bottom-6 left-6 right-6 bg-futuristic-950/80 backdrop-blur-md p-4 rounded-xl border border-futuristic-400/20">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-futuristic-300 font-medium">Kinetic Integration</span>
+                                <span class="text-futuristic-gold font-bold">High Precision</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 order-1 lg:order-2 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-futuristic-gold/10 border border-futuristic-gold/30 text-futuristic-gold text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-robot"></i>
+                        <span>Pillar Two</span>
+                    </div>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-futuristic-beige">
+                        Robotics & Cybernetic Integration
+                    </h2>
+                    <p class="text-futuristic-300 leading-relaxed">
+                        Robotics has graduated from rigid factory assembly lines to dexterous, bipedal humanoid assistants and micro-swarm technologies. Combined with brain-computer interfaces (BCIs), cybernetics are beginning to blur the line between biological capability and machine extension.
+                    </p>
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-futuristic-gold/20 flex items-center justify-center shrink-0 mt-1 text-futuristic-gold">
+                                <i class="fa-solid fa-person-walking"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-futuristic-beige">Bipedal Humanoid Workforces</h4>
+                                <p class="text-sm text-futuristic-400">General-purpose robots designed to navigate human environments and handle hazardous labor safely.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-futuristic-gold/20 flex items-center justify-center shrink-0 mt-1 text-futuristic-gold">
+                                <i class="fa-solid fa-network-wired"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-futuristic-beige">Neural Brain-Computer Interfaces</h4>
+                                <p class="text-sm text-futuristic-400">Direct neural links enabling paralyzed individuals to control digital equipment and prosthetic limbs with thought alone.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topic 3: Space Exploration -->
+    <section id="space" class="py-24 bg-futuristic-900/40 relative border-t border-futuristic-400/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-rocket"></i>
+                        <span>Pillar Three</span>
+                    </div>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-futuristic-beige">
+                        Interplanetary Colonization & Space Tech
+                    </h2>
+                    <p class="text-futuristic-300 leading-relaxed">
+                        Humanity is poised to become a multi-planetary species. Reusable heavy-lift rockets, lunar habitat modules, and deep-space telescopes are opening windows to distant exoplanets and turning science fiction into structural reality.
+                    </p>
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0 mt-1 text-blue-400">
+                                <i class="fa-solid fa-moon"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-futuristic-beige">Sustainable Lunar & Martian Outposts</h4>
+                                <p class="text-sm text-futuristic-400">In-situ resource utilization (ISRU) to extract water ice and manufacture building materials on alien soil.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0 mt-1 text-blue-400">
+                                <i class="fa-solid fa-satellite"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-futuristic-beige">Next-Gen Deep Space Observatories</h4>
+                                <p class="text-sm text-futuristic-400">Advanced space telescopes scanning atmospheric biosignatures on exoplanets light-years away.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6">
+                    <div class="relative rounded-2xl overflow-hidden glass-card p-3 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80" alt="Space Exploration and Universe" class="rounded-xl w-full h-[380px] object-cover hover:scale-105 transition-transform duration-700">
+                        <div class="absolute bottom-6 left-6 right-6 bg-futuristic-950/80 backdrop-blur-md p-4 rounded-xl border border-futuristic-400/20">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-futuristic-300 font-medium">Cosmic Horizon</span>
+                                <span class="text-blue-400 font-bold">Multi-Planetary</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topic 4: Future Inventions -->
+    <section id="inventions" class="py-24 relative border-t border-futuristic-400/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 order-2 lg:order-1">
+                    <div class="relative rounded-2xl overflow-hidden glass-card p-3 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=1000&q=80" alt="Future Energy and Inventions" class="rounded-xl w-full h-[380px] object-cover hover:scale-105 transition-transform duration-700">
+                        <div class="absolute bottom-6 left-6 right-6 bg-futuristic-950/80 backdrop-blur-md p-4 rounded-xl border border-futuristic-400/20">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-futuristic-300 font-medium">Clean Fusion & Nano</span>
+                                <span class="text-futuristic-gold font-bold">Infinite Power</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 order-1 lg:order-2 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-futuristic-gold/10 border border-futuristic-gold/30 text-futuristic-gold text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <span>Pillar Four</span>
+                    </div>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-futuristic-beige">
+                        Radical Inventions & Clean Energy
+                    </h2>
+                    <p class="text-futuristic-300 leading-relaxed">
+                        Solving humanity's grandest resource and environmental challenges demands radical scientific breakthroughs. From commercial nuclear fusion reactors mimicking stellar cores to molecular nanotechnology, tomorrow's tools will redefine material science.
+                    </p>
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-futuristic-gold/20 flex items-center justify-center shrink-0 mt-1 text-futuristic-gold">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-futuristic-beige">Controlled Nuclear Fusion</h4>
+                                <p class="text-sm text-futuristic-400">Abundant, zero-carbon baseload energy generated by fusing hydrogen isotopes in magnetic confinement chambers.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-futuristic-gold/20 flex items-center justify-center shrink-0 mt-1 text-futuristic-gold">
+                                <i class="fa-solid fa-cube"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-futuristic-beige">Molecular Nanotechnology</h4>
+                                <p class="text-sm text-futuristic-400">Programmable matter and microscopic assemblers capable of fabricating custom materials molecule by molecule.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Knowledge Quiz Section -->
+    <section id="quiz" class="py-24 bg-gradient-to-b from-futuristic-900/40 to-futuristic-950 relative border-t border-futuristic-400/20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="px-3 py-1 rounded-md bg-futuristic-accent/10 border border-futuristic-accent/30 text-futuristic-accent text-xs font-semibold uppercase tracking-wider">
+                    Interactive Assessment
+                </span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-futuristic-beige mt-3">
+                    FutureTech Knowledge Quiz
+                </h2>
+                <p class="text-futuristic-300 mt-2">Test your understanding of AI, robotics, space, and future inventions.</p>
+            </div>
+
+            <div id="quiz-container" class="glass-card rounded-3xl p-6 sm:p-10 shadow-2xl border border-futuristic-400/30">
+                <!-- Question View -->
+                <div id="quiz-question-view">
+                    <div class="flex justify-between items-center mb-6 text-sm text-futuristic-400 font-medium">
+                        <span id="question-counter">Question 1 of 4</span>
+                        <span id="quiz-score-tracker">Score: 0</span>
+                    </div>
+                    
+                    <h3 id="question-title" class="text-xl sm:text-2xl font-bold text-futuristic-beige mb-6 leading-snug">
+                        Loading question...
+                    </h3>
+
+                    <div id="options-container" class="space-y-3 mb-8">
+                        <!-- Options populated via JS -->
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button id="next-btn" onclick="handleNextQuestion()" class="hidden px-8 py-3 rounded-xl bg-futuristic-accent hover:bg-blue-600 text-white font-semibold transition-all shadow-md">
+                            Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Result View (Hidden initially) -->
+                <div id="quiz-result-view" class="hidden text-center py-8 space-y-6">
+                    <div class="w-20 h-20 bg-futuristic-accent/20 rounded-full flex items-center justify-center mx-auto text-futuristic-accent text-4xl shadow-lg">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h3 class="text-3xl font-extrabold text-futuristic-beige font-heading">Quiz Completed!</h3>
+                    <p id="result-message" class="text-lg text-futuristic-300 max-w-md mx-auto"></p>
+                    <div class="pt-4">
+                        <button onclick="restartQuiz()" class="px-8 py-3 rounded-xl bg-futuristic-accent hover:bg-blue-600 text-white font-semibold transition-all shadow-md">
+                            <i class="fa-solid fa-rotate-right mr-2"></i> Retake Quiz
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-futuristic-900 border-t border-futuristic-400/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-futuristic-accent to-futuristic-400 flex items-center justify-center">
+                        <i class="fa-solid fa-atom text-futuristic-950 text-sm"></i>
+                    </div>
+                    <span class="font-heading font-bold text-lg text-futuristic-beige">FUTURETECH EXPLORER</span>
+                </div>
+                <div class="flex space-x-6 text-futuristic-400 text-sm">
+                    <a href="#ai" class="hover:text-futuristic-accent transition-colors">AI</a>
+                    <a href="#robotics" class="hover:text-futuristic-accent transition-colors">Robotics</a>
+                    <a href="#space" class="hover:text-futuristic-accent transition-colors">Space</a>
+                    <a href="#inventions" class="hover:text-futuristic-accent transition-colors">Inventions</a>
+                    <a href="#quiz" class="hover:text-futuristic-accent transition-colors">Quiz</a>
+                </div>
+                <div class="text-xs text-futuristic-400/80">
+                    &copy; 2026 FutureTech Explorer. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu & Interactive Quiz -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 40) {
+                navbar.classList.add('shadow-xl', 'bg-futuristic-900/95');
+            } else {
+                navbar.classList.remove('shadow-xl', 'bg-futuristic-900/95');
+            }
+        });
+
+        // Quiz Data
+        const quizData = [
+            {
+                question: "What term describes AI that achieves or exceeds human cognitive capabilities across a broad spectrum of tasks?",
+                options: [
+                    "Narrow AI (ANI)",
+                    "Artificial General Intelligence (AGI)",
+                    "Cloud Neural Scripting",
+                    "Quantum Automation"
+                ],
+                correct: 1
+            },
+            {
+                question: "Which technology allows paralyzed individuals to interface directly with computers or prosthetic limbs using thought?",
+                options: [
+                    "Exoskeleton Servos",
+                    "Brain-Computer Interfaces (BCIs)",
+                    "Sub-dermal Nanobots",
+                    "Optical Retina Scanners"
+                ],
+                correct: 1
+            },
+            {
+                question: "What clean energy technology aims to replicate the energy-producing reactions of stellar cores on Earth?",
+                options: [
+                    "Controlled Nuclear Fusion",
+                    "Advanced Geothermal Drilling",
+                    "Dark Matter Converters",
+                    "High-Density Solar Sails"
+                ],
+                correct: 0
+            },
+            {
+                question: "What is the primary objective of In-Situ Resource Utilization (ISRU) in space exploration?",
+                options: [
+                    "Trading materials back with Earth merchants",
+                    "Extracting local water ice and raw materials on moons or planets",
+                    "Launching satellites into deep solar orbit",
+                    "Measuring cosmic background radiation"
+                ],
+                correct: 1
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let answered = false;
+
+        function loadQuestion() {
+            answered = false;
+            const q = quizData[currentQuestionIndex];
+            document.getElementById('question-counter').innerText = `Question ${currentQuestionIndex + 1} of ${quizData.length}`;
+            document.getElementById('quiz-score-tracker').innerText = `Score: ${score}`;
+            document.getElementById('question-title').innerText = q.question;
+            
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            q.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = "w-full text-left p-4 rounded-xl bg-futuristic-900/80 border border-futuristic-400/20 text-futuristic-200 hover:border-futuristic-accent hover:bg-futuristic-900 transition-all font-medium flex items-center justify-between group";
+                button.innerHTML = `<span>${option}</span> <span class="w-6 h-6 rounded-full border border-futuristic-400/40 flex items-center justify-center text-xs group-hover:border-futuristic-accent group-hover:text-futuristic-accent">${String.fromCharCode(65 + index)}</span>`;
+                button.onclick = () => selectOption(index, button);
+                optionsContainer.appendChild(button);
+            });
+
+            document.getElementById('next-btn').classList.add('hidden');
+        }
+
+        function selectOption(selectedIndex, buttonElement) {
+            if (answered) return;
+            answered = true;
+
+            const q = quizData[currentQuestionIndex];
+            const buttons = document.getElementById('options-container').children;
+
+            if (selectedIndex === q.correct) {
+                buttonElement.classList.remove('bg-futuristic-900/80', 'border-futuristic-400/20');
+                buttonElement.classList.add('bg-emerald-950/85', 'border-emerald-500', 'text-emerald-300');
+                score++;
+                document.getElementById('quiz-score-tracker').innerText = `Score: ${score}`;
+            } else {
+                buttonElement.classList.remove('bg-futuristic-900/80', 'border-futuristic-400/20');
+                buttonElement.classList.add('bg-rose-950/85', 'border-rose-500', 'text-rose-300');
+                
+                // Highlight correct one
+                buttons[q.correct].classList.remove('bg-futuristic-900/80', 'border-futuristic-400/20');
+                buttons[q.correct].classList.add('bg-emerald-950/85', 'border-emerald-500', 'text-emerald-300');
+            }
+
+            // Disable all buttons
+            for (let btn of buttons) {
+                btn.style.pointerEvents = 'none';
+            }
+
+            // Show next button or finish
+            const nextBtn = document.getElementById('next-btn');
+            if (currentQuestionIndex < quizData.length - 1) {
+                nextBtn.innerHTML = `Next Question <i class="fa-solid fa-arrow-right ml-2"></i>`;
+            } else {
+                nextBtn.innerHTML = `View Results <i class="fa-solid fa-flag-checkered ml-2"></i>`;
+            }
+            nextBtn.classList.remove('hidden');
+        }
+
+        function handleNextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-question-view').classList.add('hidden');
+            const resultView = document.getElementById('quiz-result-view');
+            resultView.classList.remove('hidden');
+
+            const percentage = (score / quizData.length) * 100;
+            let msg = "";
+            if (percentage === 100) {
+                msg = `Outstanding! You answered all ${quizData.length} questions correctly. You are truly ready to pioneer the future!`;
+            } else if (percentage >= 50) {
+                msg = `Great job! You scored ${score} out of ${quizData.length}. You have a solid grasp of tomorrow's technology.`;
+            } else {
+                msg = `Good effort! You scored ${score} out of ${quizData.length}. Review the sections above to boost your futuristic IQ!`;
+            }
+            document.getElementById('result-message').innerText = msg;
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            document.getElementById('quiz-result-view').classList.add('hidden');
+            document.getElementById('quiz-question-view').classList.remove('hidden');
+            loadQuestion();
+        }
+
+        // Initialize Quiz on Load
+        window.onload = () => {
+            loadQuestion();
+        };
+    </script>
+</body>
+</html>
